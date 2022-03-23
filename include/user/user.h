@@ -3,14 +3,15 @@
 
 struct USER
 {
-    char userID[10];
-    char userName[10];
-    char userPwd[20];
-    char userPhone[20];
-    char userAddress[20];
-    double userBalance;
-}ur;
+    char id[10];
+    char name[10];
+    char passwd[20];
+    char contact[20];
+    char address[20];
+    double balance;
+};
 
-void  pullusers();
+void pullUsers();
+void pushUser();
 
 #endif

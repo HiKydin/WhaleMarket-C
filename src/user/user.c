@@ -2,24 +2,60 @@
 #include <stdlib.h>
 #include "user/user.h"
 
-static flle_PATH="src/data/user.txt";
+//用户数据库的文件相对路径
+static file_PATH="src/data/user.txt";
+//输出表头
+static const char* header = "|ID         |Name       |Contact    |Address    |Balance    |";
+//输出表尾
+static const char* divide = "+-----------+-----------+-----------+-----------+-----------+";
+//定义USER类型的users结构体数组
+struct USER users[100];
+int totalUser=0;//所有用户量
 
-void pullusers()
+//读取用户信息
+void pullUsers()
 {
-    FILE *fp=NULL;
-    fp = fopen (flle_PATH, "w+");
-    fputs("U00001 user1 pwd1 1233123 江苏省南京市 42.4", fp);
-    rewind(fp);
+    FILE* fp = fopen(file_PATH, "r");
 
-    FILE* pf = fopen(flle_PATH, "r");
-    struct USER ur;
-    fscanf(pf, "%s %s %s %s %s %lf", ur.userID, ur.userName, ur.userPwd,ur.userPhone,ur.userAddress,&ur.userBalance);
-   
-    printf("Read userID |%s|\n", ur.userID );
-    printf("Read userName |%s|\n", ur.userName );
-    printf("Read userPwd |%s|\n", ur.userPwd );
-    printf("Read userPhone |%s|\n", ur.userPhone );
-    printf("Read userAddress |%s|\n", ur.userAddress );
-    printf("Read userBalance |%lf|\n", ur.userBalance );
-    fclose(fp);
+    if (fp) {
+        while (fscanf(fp, "%s%s%s%s%s%lf", users[totalUser].id, \
+users[totalUser].name, users[totalUser].passwd, users[totalUser].contact, \
+users[totalUser].address, &(users[totalUser].balance)) != EOF) totalUser++;
+        fclose(fp);
+    }
+
+    int i=0;
+    printf("%s\n",divide);
+    for(i=0;i<totalUser;i++)
+    {
+        if(i==0)
+        {
+            printf("%s\n",header);
+        }
+        printUser(i);
+    }
+    printf("%s\n",divide);
+}
+
+//标准输出用户信息
+void printUser(int i) {
+    printf("|%-10s |%-10s |%-10s |%-10s |%-10.1f |\n", users[i].id, users[i].name, \
+users[i].contact, users[i].address, users[i].balance);
+}
+
+//写入用户信息
+void pushUsers()
+{
+    // FILE *fp=NULL;
+    // fp=fopen(file_PATH,"a+");
+    // char userid[]="U00001";
+    // char username[]="user1";
+    // char userpwd[]="pwd1";
+    // char usercontact[]="1231231";
+    // char useraddress[]="江苏南京市";
+    // double userbalance=42.4;
+
+    // rewind(fp);
+    // fprintf(fp,"%s %s %s %s %s %lf\n",userid,username,userpwd,usercontact,useraddress,&userbalance);
+    // fclose(fp);
 }

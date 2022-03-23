@@ -12,5 +12,5 @@ void welcomeMessage();
  * 
  */
 void invalidMessage();
-
+void exitingMessage();
 #endif

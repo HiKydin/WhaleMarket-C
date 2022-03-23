@@ -2,6 +2,11 @@
 #include "tools/color.h"
 #include <stdio.h>
 
+static const char* SUCCESS = "\t\t*** Operation Successful! ***";
+static const char* FAILURE = "\t\t*** Operation Failed! ***";
+static const char* ILLEGAL = "\t\t*** Illegal Input! ***";
+static const char* LOADING = "\t\t*** Loading ... ***";
+static const char* EXITING = "\t\t*** Exiting ... ***";
 static const char* BANNER = "\
 \t__          ___           _          __  __            _        _       _\n\
 \t\\ \\        / / |         | |        |  \\/  |          | |      | |     | |\n\
@@ -26,6 +31,7 @@ void welcomeMessage() {
     printf("%sThis is WinterCode Project for C-Beginners.%s\n\n", FRONT_PURPLR, RESET);
 }
 
+void exitingMessage() { printf("\n%s%s%s\n\n", FRONT_RED, EXITING, RESET); }
 void invalidMessage() { 
     printf("\n%s%s%s\a\n\n", FRONT_RED, INVALID, RESET);
     printf("\n%s%sThis Function is Waiting For you to Implement ...%s\n\n", \

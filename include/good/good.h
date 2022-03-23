@@ -3,15 +3,15 @@
 
 struct GOOD
 {
-    char goodID[10];
-    double goodPri;
-    char goodNAME[10];
-    char goodINFO[100];
-    char goodUserID[10];
-    unsigned int goodTIME_year;
-    unsigned int goodTIME_moon;
-    unsigned int goodTIME_day;
-    char goodSTATU[10];
+    char ID[10];
+    double Pri;
+    char NAME[10];
+    char INFO[100];
+    char UserID[10];
+    int TIME_year;
+    int TIME_moon;
+    int TIME_day;
+    char STATU[10];
 };
 
 
