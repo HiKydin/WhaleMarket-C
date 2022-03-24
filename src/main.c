@@ -3,15 +3,15 @@
 int main() {
     pullUsers();
     pullGoods();
-    //pullOrders();
+    pullOrders();
 
     welcomeMessage();
     MAIN_Interface();
     exitingMessage();
     
     pushUsers();
-    //pushGoods();
-    //pushOrders();
+    pushGoods();
+    pushOrders();
     
     return 0;
 }

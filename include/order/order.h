@@ -1,15 +1,14 @@
 #ifndef _ORDER_H_
 #define _ORDER_H_
 
-struct ORDER
+#include "config.h"
+struct Order
 {
-    char orderID[10];
-    char goodID[10];
+    char ID[MAX_LEN];
+    char goodID[MAX_LEN];
     double trsMoney;
-    int Time_year;
-    int Time_moon;
-    int Time_day;
-    char SellerID[10];
-    char BuyersID[10];
+    char Date[MAX_LEN];
+    char SellerID[MAX_LEN];
+    char BuyersID[MAX_LEN];
 };
 #endif
