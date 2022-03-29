@@ -1,9 +1,9 @@
 #include "interface/interface.h"
 #include "menu/menu.h"
-void MAIN_Interface()
+void MODIFY_Interface()
 {
-    int op=usemenu(MAIN);
-    while(op != optionNum[MAIN])
+    int op=usemenu(MODIFY);
+    while(op != optionNum[MODIFY])
     {
         switch(op)
         {
@@ -14,6 +14,6 @@ void MAIN_Interface()
             case 3:
                 break;
         }
-        op=usemenu(MAIN);
+        op=usemenu(MODIFY);
     }
 }
